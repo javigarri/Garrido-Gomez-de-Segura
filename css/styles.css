@@ -1,0 +1,196 @@
+/* ==========================================================================
+   Variables Globales
+   ========================================================================== */
+:root {
+    /* Paleta de Colores - Tonos cálidos, terrosos, nostálgicos */
+    --color-bg: #FDFCFB; /* Blanco roto / Off-white */
+    --color-bg-alt: #F9F6F0; /* Crema / Beige */
+    --color-primary: #722F37; /* Burdeos elegante */
+    --color-secondary: #5A6B53; /* Verde Oliva */
+    --color-sepia: #EAE0D5; /* Sepia suave */
+    --color-text-main: #2C2825; /* Texto oscuro para legibilidad (Casi negro) */
+    --color-text-muted: #595551; /* Texto secundario */
+    --color-white: #FFFFFF;
+
+    /* Tipografía */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+
+    /* Espaciado y Layout */
+    --max-width: 1200px;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+
+    /* Transiciones y Sombras */
+    --transition-fast: 0.3s ease;
+    --transition-slow: 0.6s ease;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================================================
+   Reset & Estilos Base
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base para rems */
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-main);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-main);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   Utilidades y Layout General
+   ========================================================================== */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-secondary);
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    margin-top: 1rem;
+}
+
+.bg-light {
+    background-color: var(--color-bg-alt);
+}
+
+.bg-secondary {
+    background-color: var(--color-secondary);
+}
+
+.text-light h2, .text-light p, .text-light label {
+    color: var(--color-white) !important;
+}
+
+.text-light h2::after {
+    background-color: var(--color-sepia);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* ==========================================================================
+   Botones
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-family: var(--font-body);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background-color: #5c242c;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.btn-light {
+    background-color: var(--color-bg);
+    color: var(--color-secondary);
+}
+
+.btn-light:hover {
+    background-color: var(--color-sepia);
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Animaciones Generales
+   ========================================================================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

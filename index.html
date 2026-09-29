@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árbol Genealógico | Javi Garrido Gómez de Segura</title>
+    <meta name="description" content="Historia, fotografías y árbol genealógico de la familia de Javi Garrido Gómez de Segura, originarios de Apellaniz, Álava.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">Familia Garrido</a>
+            <ul class="nav-links">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#tree">El Árbol</a></li>
+                <li><a href="#actas">Actas</a></li>
+                <li><a href="#adn">ADN</a></li>
+                <li><a href="#biographies">Biografías</a></li>
+                <li><a href="#gallery">Galería</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero-section fade-in">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h2 class="subtitle">Nuestras Raíces</h2>
+                <h1 class="title">Familia Garrido<br>Gómez de Segura</h1>
+                <p class="intro-text">
+                    Desde los hermosos paisajes de Apellaniz, Álava, trazamos nuestra historia, 
+                    recordamos a nuestros antepasados y celebramos el legado que nos une.
+                </p>
+                <a href="#tree" class="btn btn-primary">Ver Árbol Genealógico</a>
+            </div>
+        </section>
+
+        <!-- Family Tree Section -->
+        <section id="tree" class="section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nuestro Árbol Genealógico</h2>
+                    <p>Explora las generaciones que forman nuestra historia.</p>
+                </div>
+                <div class="tree-viewport" id="tree-viewport">
+                    <div class="tree-wrapper" id="tree-container">
+                        <svg id="tree-svg-overlay"></svg>
+                        <div id="tree-generations"></div>
+                    </div>
+                </div>
+                <div class="zoom-controls">
+                    <button id="zoom-in" class="btn btn-light" title="Acercar">+</button>
+                    <button id="zoom-out" class="btn btn-light" title="Alejar">-</button>
+                    <button id="zoom-reset" class="btn btn-light" title="Restaurar tamaño">↻</button>
+                    <span class="zoom-hint">💡 Puedes arrastrar para moverte</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Actas Section -->
+        <section id="actas" class="section bg-light fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Actas Documentales</h2>
+                    <p>Explora los documentos históricos y registros de nuestra familia.</p>
+                </div>
+                <div class="actas-grid" id="actas-container">
+                    <div class="acta-folder" onclick="openActasFolder('Nacimiento')">
+                        <div class="folder-icon">🗂️</div>
+                        <h3>Nacimiento</h3>
+                        <p>Partidas y certificados de nacimiento</p>
+                    </div>
+                    <div class="acta-folder" onclick="openActasFolder('Bautismo')">
+                        <div class="folder-icon">🗂️</div>
+                        <h3>Bautismo</h3>
+                        <p>Fes de bautismo y registros parroquiales</p>
+                    </div>
+                    <div class="acta-folder" onclick="openActasFolder('Matrimonio')">
+                        <div class="folder-icon">🗂️</div>
+                        <h3>Matrimonio</h3>
+                        <p>Actas matrimoniales y dispensas</p>
+                    </div>
+                    <div class="acta-folder" onclick="openActasFolder('Defuncion')">
+                        <div class="folder-icon">🗂️</div>
+                        <h3>Defunción</h3>
+                        <p>Certificados de defunción y entierro</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADN Section -->
+        <section id="adn" class="section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Resultados de ADN</h2>
+                    <p>Estimación étnica, mapas genéticos y orígenes ancestrales.</p>
+                </div>
+                <div class="adn-grid" id="adn-container">
+                    <!-- Las fotos de ADN se cargarán dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Biographies Section -->
+        <section id="biographies" class="section fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Perfiles y Biografías</h2>
+                    <p>Conoce las historias de vida de nuestros familiares.</p>
+                </div>
+                <div class="biography-grid" id="bio-container">
+                    <!-- Las biografías serán inyectadas aquí -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section bg-light fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Galería de Recuerdos</h2>
+                    <p>Fotografías históricas y momentos inolvidables.</p>
+                </div>
+                <div class="gallery-grid" id="gallery-container">
+                    <!-- Las fotos de la galería se cargarán aquí -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section bg-secondary text-light fade-in">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Colabora con la Historia</h2>
+                    <p>¿Tienes alguna foto antigua o alguna corrección? Envíanos un mensaje.</p>
+                </div>
+                <div class="contact-email-container" style="text-align: center; margin-top: 2rem;">
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
+                        Puedes enviar tus fotos, documentos o cualquier dato adicional directamente a mi correo electrónico:
+                    </p>
+                    <a href="mailto:javigarri01@gmail.com" class="btn btn-light" style="font-size: 1.3rem; padding: 15px 35px; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; font-weight: bold;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        javigarri01@gmail.com
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 Familia Garrido Gómez de Segura. Todos los derechos reservados.</p>
+            <p class="footer-note">Diseñado con amor para preservar nuestra memoria.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal para la galería -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="caption"></div>
+    </div>
+
+    <!-- Modal para Actas -->
+    <div id="actas-modal" class="actas-modal">
+        <div class="actas-modal-content">
+            <span class="actas-modal-close" onclick="closeActasModal()">&times;</span>
+            <h2 id="actas-modal-title">Documentos</h2>
+            <div id="actas-gallery" class="actas-gallery-grid">
+                <!-- Se inyectarán los documentos aquí -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/actas.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
